@@ -1,0 +1,86 @@
+/* Ensure the header is fixed at the top */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #333;  /* Dark background */
+  color: white;  /* Text color */
+  padding: 10px 20px;
+  z-index: 1000;  /* Keep it on top of other elements */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  Shadow for visual depth */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.brand-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Highlight the active link */
+.menu a.active {
+  font-weight: bold;
+  background-color: #555; /* Highlight color */
+}
+
+/* Change background color on hover */
+.menu a:hover {
+  background-color: #555;
+}
+
+@media (max-width: 768px) {
+  /* Hide the Home link on mobile */
+.Home {
+    display: none;
+  }
+}
+
+/* Overlay that prevents clicks on the background */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  pointer-events: auto; /* Overlay receives the clicks */
+}
+
+/* Popup styling */
+/* .popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  text-align: center;
+  z-index: 1000;
+  width: 300px;
+} */
+
+/* Disable pointer events on the main content */
+.content.blurred {
+  pointer-events: none;
+  filter: blur(3px); /* Optional: blur the background for focus effect */
+  user-select: none; /* Prevents text selection */
+}

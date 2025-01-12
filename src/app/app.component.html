@@ -1,0 +1,30 @@
+
+
+<div class="overlay" *ngIf="showPopup"></div>
+
+
+<!-- The main content, which should be unaffected when the popup is open -->
+<div class="content" [class.blurred]="showPopup">
+  <div  class="container-fluid">
+    <header class="header">
+      <div class="brand-name">Profiler</div>
+      <nav class="menu">
+        <!-- Using routerLink and routerLinkActive -->
+        <a routerLink="/home" routerLinkActive="active" class="Home">Home</a>
+        <a routerLink="/login" routerLinkActive="active" class="login">Login</a>
+        <a routerLink="/signup" routerLinkActive="active" class="signup">Sign Up</a>
+      </nav>
+    </header>
+  </div>
+  <div  style="margin-top: 55px;">
+    <router-outlet />
+  </div>
+</div>
+
+
+<div *ngIf="showPopup">
+  <app-popup (close)="closePopup()">
+    <h1>Warning</h1>
+    <p>Please be aware that this website uses cookies to improve your experience.</p>
+  </app-popup>
+</div>

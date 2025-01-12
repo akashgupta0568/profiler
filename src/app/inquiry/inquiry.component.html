@@ -1,0 +1,19 @@
+<div>
+    <h2>Inquiries in {{ city }}</h2>
+    
+    <ul>
+      <li *ngFor="let inquiry of inquiries">
+        Inquiry ID: {{ inquiry.id }} - City: {{ inquiry.city }}
+        <!-- Display other inquiry properties here -->
+      </li>
+    </ul>
+  
+    <div>
+      <button (click)="loadInquiries()">Reload</button>
+    </div>
+    <div>
+        <button (click)="getAllRecord()">Get All Record</button>
+      </div>
+
+  </div>
+  

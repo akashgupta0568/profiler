@@ -1,0 +1,45 @@
+<form (ngSubmit)="onLogin()">
+    <h2>Login to Profiler</h2>
+    <input
+      type="email"
+      [(ngModel)]="email"
+      name="email"
+      placeholder="Enter your email"
+      required
+    />
+    <input
+      type="password"
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Enter your password"
+      required
+    />
+    <button type="submit">Login</button>
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <button (click)="GoogleLogin()">Google Login</button>
+    <button (click)="GoogleLogin()">Facebook Login</button>
+  </form>
+
+  
+  <div>
+    <form (submit)="PhoneLogin($event)">
+      <h2>Phone Number Login</h2>
+      <div>
+        <label>Phone Number:</label>
+        <input [(ngModel)]="phoneNumber" name="phoneNumber" required>
+      </div>
+      <button type="button" (click)="sendVerificationCode()">Send Verification Code</button>
+    </form>
+
+    <div *ngIf="verificationSent">
+      <label>Verification Code:</label>
+      <input [(ngModel)]="verificationCode" name="verificationCode" required>
+      <button (click)="verifyCode()">Verify Code</button>
+    </div>
+
+    <p *ngIf="message">{{ message }}</p>
+    <div #recaptchaContainer id="recaptcha-container"></div>
+  </div>
